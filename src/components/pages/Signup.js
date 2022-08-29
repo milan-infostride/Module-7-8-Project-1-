@@ -143,7 +143,7 @@ const Signup = () => {
         }
         let emailData = [];
         let gotEmailData = false;
-         let emailResponse = await fetch('http://localhost:3000/users?email='+email.inputValue)
+         let emailResponse = await fetch('https://my-json-server.typicode.com/milan-infostride/address-book-json-server/users?email='+email.inputValue)
          if(emailResponse.ok){
             emailData = await emailResponse.json();
             gotEmailData  =true
@@ -158,7 +158,7 @@ const Signup = () => {
          }
          if(gotEmailData){
             if(emailData.length==0){
-                fetch('http://localhost:3000/users',requestConfig).then(res=>{
+                fetch('https://my-json-server.typicode.com/milan-infostride/address-book-json-server/users',requestConfig).then(res=>{
                 if(!res.ok){
                     // alertHandler('error','Server Error...!!')
                     dispatch(alertHandlerActions.fireAlert({message:'Server Error...!!',severety:'error'}))

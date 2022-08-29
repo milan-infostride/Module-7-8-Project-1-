@@ -11,6 +11,9 @@ const commanFunctions = {
       console.log(words)
       return words;
 
+    },
+    getServerUrl : ()=>{
+      return 'https://my-json-server.typicode.com/milan-infostride/address-book-json-server';
     }
   }
 export default commanFunctions;

@@ -59,7 +59,7 @@ const Navbar = () => {
     const logoutHandler = ()=>{
       localStorage.removeItem('currentUser');
       currentUserDispatch(currentUserActions.logout());
-      window.location.reload();
+      window.location.replace('/login');
     }
     
     return ( 
@@ -167,30 +167,33 @@ const Navbar = () => {
                
               </ListItemButton>
               }
-              {/* {currentUser.id !=-1 && */}
-                {/* <Button color='secondary' sx={{ml:'3.7em',mt:0.7,mb:1.3}} variant="contained" size='small' onClick={()=>{logoutHandler}}>Logout</Button> */}
+               {currentUser.id !=-1 && 
+                  <Button color='secondary' sx={{ml:'3.7em',mt:0.7,mb:1.3}} variant="contained" size='small' onClick={()=>{logoutHandler()}}>Logout</Button> 
 
-              {/* } */}
+               } 
             </ListItem>
             <Collapse in={loginOpen}>
               <List sx={{pl:1.5}}>
                 <ListItem>
+                  <RouterLink onClick={()=>{ setTopOpen(false) }} style={{textDecoration:'none',color:'#fff'}} to='/login'>
                   <ListItemButton>
                     <ListItemIcon sx={{justifyContent: 'end'}}>
                         <VpnKeyIcon sx={iconsx} />
                     </ListItemIcon>
                     <ListItemText primary="Login" />
                   </ListItemButton>
+                  </RouterLink>
                 </ListItem>
                 <Divider variant='middle' sx={{color: bgColor,width:'60%'}}></Divider>
                 <ListItem>
+                <RouterLink onClick={()=>{ setTopOpen(false) }} style={{textDecoration:'none',color:'#fff'}} to='/signup'>
                   <ListItemButton>
                     <ListItemIcon sx={{justifyContent: 'end'}}>
                         <PersonIcon sx={iconsx} />
                     </ListItemIcon>
-                    <ListItemText primary="Sigup" />
+                    <ListItemText primary="Signup" />
                   </ListItemButton>
-              
+                </RouterLink>
                 </ListItem>
               
               </List>

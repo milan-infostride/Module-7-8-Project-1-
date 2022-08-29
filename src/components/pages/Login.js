@@ -85,7 +85,8 @@ const Login = () => {
     const loginHandler = async()=>{
         let emailData = [];
         let gotEmailData = false;
-         let emailResponse = await fetch('http://localhost:3000/users?email='+email.inputValue)
+         let emailResponse = await fetch('https://my-json-server.typicode.com/milan-infostride/address-book-json-server/users?email='+email.inputValue)
+         console.log('email response  = ',emailResponse);
          if(emailResponse.ok){
             emailData = await emailResponse.json();
             gotEmailData  =true

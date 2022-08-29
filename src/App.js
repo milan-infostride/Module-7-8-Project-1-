@@ -60,7 +60,7 @@ const addressDispatch = useDispatch();
       //value: {}
     };
     newAddress.uid = currentUser.id;
-     fetch('http://localhost:3000/addresses/',{
+     fetch('https://my-json-server.typicode.com/milan-infostride/address-book-json-server/addresses/',{
       method: 'POST',
       body: JSON.stringify(newAddress),
       headers: {
@@ -88,7 +88,7 @@ const addressDispatch = useDispatch();
     
   }
   const editAddressHandler = (newAddress)=>{
-    fetch(' http://localhost:3000/addresses/'+newAddress.id,{
+    fetch('https://my-json-server.typicode.com/milan-infostride/address-book-json-server/addresses/'+newAddress.id,{
       method: 'PUT',
       body: JSON.stringify(newAddress),
       headers: {
@@ -109,7 +109,7 @@ const addressDispatch = useDispatch();
     
   }
   const deleteHandler = (id)=>{
-    fetch('http://localhost:3000/addresses/'+id,{
+    fetch('https://my-json-server.typicode.com/milan-infostride/address-book-json-server/addresses/'+id,{
       method: 'DELETE',
       //body: JSON.stringify(),
       headers: {
@@ -225,7 +225,7 @@ const addressDispatch = useDispatch();
     if(localStorage.getItem('currentUser')){
       let user = JSON.parse(localStorage.getItem('currentUser'));
       addressDispatch(currentUserActions.setCurrentUser({currentUser:user}));
-      fetch('http://localhost:3000/addresses?uid='+user.id).then(res=>{return res.json()}).then(res=>{ initialAddresses=res;
+      fetch('https://my-json-server.typicode.com/milan-infostride/address-book-json-server/addresses?uid='+user.id).then(res=>{return res.json()}).then(res=>{ initialAddresses=res;
       addressDispatch(addressActions.initialize({initialAddresses:res}))
       })
     }
